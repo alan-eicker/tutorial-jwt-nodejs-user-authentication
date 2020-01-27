@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:": "NODE_ENV=production babel -d ./dist ./src -s",
+    "build": "NODE_ENV=production babel -d ./dist ./src -s",
     "start:dev": "NODE_ENV=development nodemon --exec babel-node ./src",
     "start": "NODE_ENV=production node ./dist",
-    "migrate": "node ./migrate.js"
+    "migrate": "node ./migrate.js",
+    "postbuild": "NODE_ENV=production npm run migrate"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +17,10 @@
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
     "@babel/node": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
+    "@babel/runtime-corejs3": "^7.8.3",
     "nodemon": "^2.0.2"
   },
   "dependencies": {

@@ -1,5 +1,6 @@
+const dotenv = require('dotenv-flow').config();
 const sqlite = require('sqlite');
-const dbPromise = sqlite.open('./src/database.sqlite');
+const dbPromise = sqlite.open(`${process.env.BASE_URL || './src'}/database.sqlite`);
 
 (async () => {
   try {
